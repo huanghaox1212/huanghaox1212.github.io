@@ -4,6 +4,8 @@
     <title>SARS-CoV-2安徽疫情的微分方程模型预测</title>
     <url>/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/</url>
     <content><![CDATA[<p>本文的结果预测于2月21日。</p>
+<a id="more"></a>
+
 <h2 id="0-符号约定"><a href="#0-符号约定" class="headerlink" title="0.符号约定"></a>0.符号约定</h2><ul>
 <li>某种人群的数量-时间关系函数为$X(t)$，其中 X 表示该人群的名称首字母。</li>
 <li>患者传染率为$\beta$，患者治愈率$\gamma$，被传染之后<strong>成为患者而不是潜伏者，或者由潜伏者成为患者</strong>的概率为$\alpha$（由于潜伏者只有变为患者后才会被医院收治，故忽略潜伏者治愈率）。</li>
@@ -46,7 +48,7 @@
 </li>
 </ul>
 <h3 id="模型实现"><a href="#模型实现" class="headerlink" title="模型实现"></a>模型实现</h3><p>使用Excel计算的结果：</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CDesktop%5Ctbl.png" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-9a359b2fb5d66917a5896f7d12b0e0a5_720w.jpg" alt="img"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>预计3月10日左右结束疫情，安徽将连续多日出现零增长，潜伏者数量骤降。</p>
 <h3 id="风险提示"><a href="#风险提示" class="headerlink" title="风险提示"></a>风险提示</h3><ul>
 <li>本文考虑到的因素有限，包括人口的流动、各地医疗水平的不同等都被忽略。</li>
@@ -54,7 +56,7 @@
 <li>由于安徽地区患者较少，偶然因素大，有几率发生突发的转折，也有几率数据中的趋势仅仅是一小段随机的曲线。</li>
 <li>众所周知，由于政府对确诊患者文件的变动，可能附件中的数据并不完全准确。</li>
 </ul>
-<h3 id="模型检验（3-9日晚补充）"><a href="#模型检验（3-9日晚补充）" class="headerlink" title="模型检验（3.9日晚补充）"></a>模型检验（3.9日晚补充）</h3><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583763571289.png" alt="img"></p>
+<h3 id="模型检验（3-9日晚补充）"><a href="#模型检验（3-9日晚补充）" class="headerlink" title="模型检验（3.9日晚补充）"></a>模型检验（3.9日晚补充）</h3><p><img src="https://pic1.zhimg.com/80/v2-a582623fb818084ca84b5c00ea797fd0_720w.jpg" alt="img"></p>
 <p>可以看出，疫情中后期表现基本与模型完全吻合，并正确地预测了拐点、结束时期。</p>
 <h3 id="前期误差原因"><a href="#前期误差原因" class="headerlink" title="前期误差原因"></a>前期误差原因</h3><ul>
 <li>一方面即“风险提示”中第四点。</li>

@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-15 08:44:33 / 修改时间：08:46:05" itemprop="dateCreated datePublished" datetime="2020-03-15T08:44:33+08:00">2020-03-15</time>
+              <time title="创建时间：2020-03-15 08:44:33 / 修改时间：08:56:47" itemprop="dateCreated datePublished" datetime="2020-03-15T08:44:33+08:00">2020-03-15</time>
             </span>
 
           
@@ -236,454 +236,14 @@
 
       
           <p>本文的结果预测于2月21日。</p>
-<h2 id="0-符号约定"><a href="#0-符号约定" class="headerlink" title="0.符号约定"></a>0.符号约定</h2><ul>
-<li>某种人群的数量-时间关系函数为$X(t)$，其中 X 表示该人群的名称首字母。</li>
-<li>患者传染率为$\beta$，患者治愈率$\gamma$，被传染之后<strong>成为患者而不是潜伏者，或者由潜伏者成为患者</strong>的概率为$\alpha$（由于潜伏者只有变为患者后才会被医院收治，故忽略潜伏者治愈率）。</li>
-<li>患者单位时间内接触人数$r_1$，潜伏者单位时间内接触人数$r_2$（本文的算法中单位为人/天）。</li>
-<li>安徽总人数$N=6.3236\times10^7$（单位：人）。</li>
-</ul>
-<h2 id="1-假设与约定"><a href="#1-假设与约定" class="headerlink" title="1.假设与约定"></a>1.假设与约定</h2><ul>
-<li>附件中的数据真实可靠</li>
-<li>安徽区域的人数近似稳定，不会大幅度地向外或向内流动</li>
-<li>潜伏者在出现症状前，不会被检查出携带病毒并入院收治</li>
-<li>死亡人数对疫情模型几乎没有影响。事实上，安徽地区截至2.19的患者死亡率仅为约$0.6%$</li>
-<li>本模型仅用于计算不超过一个月的情况。由于安徽的疫情发展迅速（事实上根据预测，3月上旬就将结束），这已经足够。</li>
-</ul>
-<h2 id="2-传染病模型简述"><a href="#2-传染病模型简述" class="headerlink" title="2.传染病模型简述"></a>2.传染病模型简述</h2><p>考虑新冠肺炎疫情复杂，选择$\text{seir}$模型作为基础。<br>将人群分为如下几类：</p>
-<ul>
-<li>$\text{S (Susceptible)}$，易感者。指未得病者，但缺乏免疫能力，与感染者接触后容易受到感染。</li>
-<li>$\text{E (Exposed)}$，潜伏者。指接触过感染者，但暂无能力传染给其他人的人，对潜伏期长的传染病适用。</li>
-<li>$\text{I (Infectious)}$，确诊患者。指染上传染病的人，可以传播给 S 类成员，将其变为 E 类或 I 类成员。</li>
-<li>$\text{R (Recovered)}$，治愈者。指被隔离或因病愈而具有免疫力的人。如免疫期有限，R 类成员可以重新变为 S 类。包括病死者。</li>
-<li><strong>需要注意的是，在本文中，为了方便调参，I代表累计确诊人数</strong>。</li>
-</ul>
-<p>其满足恒等关系$S(t)+E(t)+I(t)=N$，与微分方程<br>$$<br>\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\dfrac{\text{d}R}{\text{d}t}=\gamma I<br>$$<br>由于SARS-CoV-2的潜伏者具有感染能力，我们对微分方程进行调整：<br>$$<br>\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N-r_2\beta ES/N\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E+r_2\beta ES/N\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\dfrac{\text{d}R}{\text{d}t}=\gamma I<br>$$<br>具体计算过程中，我们取天为单位。进行迭代求解：<br>$$<br>S_n=S_{n-1}-r_1\beta I_{n-1}S_{n-1}/N-r_2\beta E_{n-1}S_{n-1}/N\E_n=E_{n-1}+r_1\beta I_{n-1}S_{n-1}/N-\alpha E_{n-1}+r_2\beta E_{n-1}S_{n-1}/N\I_n=I_{n-1}+\alpha E_{n-1}\R_n=R_{n-1}+\gamma I_{n-1}<br>$$<br>事实上，$r_1,r_2,\gamma$为定值时，将会导致结果极不准确。这不难理解，因为戒严尺度、医疗经验皆发生了变化。</p>
-<p>所以我们令$r_1=r_1(t),r_2=r_2(t),\gamma=\gamma(t)$为关于时间的函数。</p>
-<h2 id="模型参数"><a href="#模型参数" class="headerlink" title="模型参数"></a>模型参数</h2><h3 id="固有参数"><a href="#固有参数" class="headerlink" title="固有参数"></a>固有参数</h3><ul>
-<li>人口：$N=6.3236\times10^7$</li>
-<li>$S_0=N,I_0=9,R_0=0$（初始状态下E和I极少，故S0大致视作N）。</li>
-<li>传染率：$\beta=1.7%$</li>
-<li>潜伏者发病概率：$\alpha=13%$</li>
-<li>固有参数中部分选自文献[1]</li>
-</ul>
-<h3 id="待定参数"><a href="#待定参数" class="headerlink" title="待定参数"></a>待定参数</h3><p>这是一些较难统计的参数。</p>
-<ul>
-<li><p>$E_0$，对模型进行二分拟合后，发现取$E_0$在$660$附近时拟合效果较好。</p>
-</li>
-<li><p>接触人数</p>
-<p>令$r_1$、$r_2$为$a\exp(-bt)$的形式。对已知数据进行拟合，经过二分尝试，可取值如下：</p>
-<p>$r_1=7\exp(-0.25t),r_2=13.2\exp(-0.48t)$</p>
-</li>
-<li><p>日治愈率<br>令$\gamma(t)=a\exp(bt)$，对已知数据进行拟合，经过二分尝试，取$\gamma(t)=0.004\exp(0.1t)$时拟合结果较好。由于约定本模型并不用于时间过长的情形，而事实上，预测的疫情结束事件前，都有$\gamma(t)\le1$，显然符合“治愈率”的概念。</p>
-</li>
-</ul>
-<h3 id="模型实现"><a href="#模型实现" class="headerlink" title="模型实现"></a>模型实现</h3><p>使用Excel计算的结果：</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CDesktop%5Ctbl.png" alt="img"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>预计3月10日左右结束疫情，安徽将连续多日出现零增长，潜伏者数量骤降。</p>
-<h3 id="风险提示"><a href="#风险提示" class="headerlink" title="风险提示"></a>风险提示</h3><ul>
-<li>本文考虑到的因素有限，包括人口的流动、各地医疗水平的不同等都被忽略。</li>
-<li>二分拟合的方法难免存在误差。</li>
-<li>由于安徽地区患者较少，偶然因素大，有几率发生突发的转折，也有几率数据中的趋势仅仅是一小段随机的曲线。</li>
-<li>众所周知，由于政府对确诊患者文件的变动，可能附件中的数据并不完全准确。</li>
-</ul>
-<h3 id="模型检验（3-9日晚补充）"><a href="#模型检验（3-9日晚补充）" class="headerlink" title="模型检验（3.9日晚补充）"></a>模型检验（3.9日晚补充）</h3><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583763571289.png" alt="img"></p>
-<p>可以看出，疫情中后期表现基本与模型完全吻合，并正确地预测了拐点、结束时期。</p>
-<h3 id="前期误差原因"><a href="#前期误差原因" class="headerlink" title="前期误差原因"></a>前期误差原因</h3><ul>
-<li>一方面即“风险提示”中第四点。</li>
-<li>前后期存在一些被本文忽略，但实际上不容忽视的其他因素，它在前期有重要影响，但中后期影响力则淡化。</li>
-</ul>
-<h3 id="附件（安徽省疫情历史数据）"><a href="#附件（安徽省疫情历史数据）" class="headerlink" title="附件（安徽省疫情历史数据）"></a>附件（安徽省疫情历史数据）</h3><table>
-<thead>
-<tr>
-<th>日期</th>
-<th>确诊</th>
-<th>痊愈</th>
-<th>Δ</th>
-<th>TMP</th>
-<th>痊愈率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1月23日</td>
-<td>9</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月24日</td>
-<td>15</td>
-<td>0</td>
-<td>0</td>
-<td>9</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月25日</td>
-<td>39</td>
-<td>0</td>
-<td>0</td>
-<td>15</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月26日</td>
-<td>60</td>
-<td>0</td>
-<td>0</td>
-<td>39</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月27日</td>
-<td>70</td>
-<td>0</td>
-<td>0</td>
-<td>60</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月28日</td>
-<td>106</td>
-<td>0</td>
-<td>0</td>
-<td>70</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月29日</td>
-<td>152</td>
-<td>2</td>
-<td>2</td>
-<td>106</td>
-<td>0.018867925</td>
-</tr>
-<tr>
-<td>1月30日</td>
-<td>200</td>
-<td>2</td>
-<td>0</td>
-<td>152</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1月31日</td>
-<td>237</td>
-<td>3</td>
-<td>1</td>
-<td>200</td>
-<td>0.005050505</td>
-</tr>
-<tr>
-<td>2月1日</td>
-<td>297</td>
-<td>3</td>
-<td>0</td>
-<td>237</td>
-<td>0</td>
-</tr>
-<tr>
-<td>2月2日</td>
-<td>340</td>
-<td>5</td>
-<td>2</td>
-<td>297</td>
-<td>0.006802721</td>
-</tr>
-<tr>
-<td>2月3日</td>
-<td>408</td>
-<td>7</td>
-<td>2</td>
-<td>340</td>
-<td>0.005970149</td>
-</tr>
-<tr>
-<td>2月4日</td>
-<td>480</td>
-<td>14</td>
-<td>7</td>
-<td>408</td>
-<td>0.017456359</td>
-</tr>
-<tr>
-<td>2月5日</td>
-<td>530</td>
-<td>20</td>
-<td>6</td>
-<td>480</td>
-<td>0.012875536</td>
-</tr>
-<tr>
-<td>2月6日</td>
-<td>591</td>
-<td>23</td>
-<td>3</td>
-<td>530</td>
-<td>0.005882353</td>
-</tr>
-<tr>
-<td>2月7日</td>
-<td>665</td>
-<td>34</td>
-<td>11</td>
-<td>591</td>
-<td>0.019366197</td>
-</tr>
-<tr>
-<td>2月8日</td>
-<td>733</td>
-<td>47</td>
-<td>13</td>
-<td>665</td>
-<td>0.020602219</td>
-</tr>
-<tr>
-<td>2月9日</td>
-<td>779</td>
-<td>59</td>
-<td>12</td>
-<td>733</td>
-<td>0.017492711</td>
-</tr>
-<tr>
-<td>2月10日</td>
-<td>830</td>
-<td>73</td>
-<td>14</td>
-<td>779</td>
-<td>0.019444444</td>
-</tr>
-<tr>
-<td>2月11日</td>
-<td>860</td>
-<td>88</td>
-<td>15</td>
-<td>830</td>
-<td>0.019815059</td>
-</tr>
-<tr>
-<td>2月12日</td>
-<td>889</td>
-<td>108</td>
-<td>20</td>
-<td>860</td>
-<td>0.025906736</td>
-</tr>
-<tr>
-<td>2月13日</td>
-<td>910</td>
-<td>128</td>
-<td>20</td>
-<td>889</td>
-<td>0.025608195</td>
-</tr>
-<tr>
-<td>2月14日</td>
-<td>934</td>
-<td>166</td>
-<td>38</td>
-<td>910</td>
-<td>0.04859335</td>
-</tr>
-<tr>
-<td>2月15日</td>
-<td>950</td>
-<td>198</td>
-<td>32</td>
-<td>934</td>
-<td>0.041666667</td>
-</tr>
-<tr>
-<td>2月16日</td>
-<td>962</td>
-<td>232</td>
-<td>34</td>
-<td>950</td>
-<td>0.045212766</td>
-</tr>
-<tr>
-<td>2月17日</td>
-<td>973</td>
-<td>266</td>
-<td>34</td>
-<td>962</td>
-<td>0.046575342</td>
-</tr>
-<tr>
-<td>2月18日</td>
-<td>982</td>
-<td>293</td>
-<td>27</td>
-<td>973</td>
-<td>0.038189533</td>
-</tr>
-<tr>
-<td>2月19日</td>
-<td>986</td>
-<td>361</td>
-<td>68</td>
-<td>982</td>
-<td>0.098693759</td>
-</tr>
-<tr>
-<td>2月20日</td>
-<td>987</td>
-<td>424</td>
-<td>63</td>
-<td>986</td>
-<td>0.1008</td>
-</tr>
-<tr>
-<td><strong>2月21日</strong>（预测日）</td>
-<td>988</td>
-<td>500</td>
-<td>76</td>
-<td>987</td>
-<td>0.134991119</td>
-</tr>
-<tr>
-<td>2月22日</td>
-<td>989</td>
-<td>567</td>
-<td>67</td>
-<td>988</td>
-<td>0.137295082</td>
-</tr>
-<tr>
-<td>2月23日</td>
-<td>989</td>
-<td>620</td>
-<td>53</td>
-<td>989</td>
-<td>0.125592417</td>
-</tr>
-<tr>
-<td>2月24日</td>
-<td>989</td>
-<td>648</td>
-<td>28</td>
-<td>989</td>
-<td>0.075880759</td>
-</tr>
-<tr>
-<td>2月25日</td>
-<td>989</td>
-<td>692</td>
-<td>44</td>
-<td>989</td>
-<td>0.129032258</td>
-</tr>
-<tr>
-<td>2月26日</td>
-<td>989</td>
-<td>727</td>
-<td>35</td>
-<td>989</td>
-<td>0.117845118</td>
-</tr>
-<tr>
-<td>2月27日</td>
-<td>989</td>
-<td>764</td>
-<td>37</td>
-<td>989</td>
-<td>0.141221374</td>
-</tr>
-<tr>
-<td>2月28日</td>
-<td>990</td>
-<td>814</td>
-<td>50</td>
-<td>989</td>
-<td>0.222222222</td>
-</tr>
-<tr>
-<td>2月29日</td>
-<td>990</td>
-<td>824</td>
-<td>10</td>
-<td>990</td>
-<td>0.056818182</td>
-</tr>
-<tr>
-<td>3月1日</td>
-<td>990</td>
-<td>868</td>
-<td>44</td>
-<td>990</td>
-<td>0.265060241</td>
-</tr>
-<tr>
-<td>3月2日</td>
-<td>990</td>
-<td>888</td>
-<td>20</td>
-<td>990</td>
-<td>0.163934426</td>
-</tr>
-<tr>
-<td>3月3日</td>
-<td>990</td>
-<td>917</td>
-<td>29</td>
-<td>990</td>
-<td>0.284313725</td>
-</tr>
-<tr>
-<td>3月4日</td>
-<td>990</td>
-<td>941</td>
-<td>24</td>
-<td>990</td>
-<td>0.328767123</td>
-</tr>
-<tr>
-<td>3月5日</td>
-<td>990</td>
-<td>956</td>
-<td>15</td>
-<td>990</td>
-<td>0.306122449</td>
-</tr>
-<tr>
-<td>3月6日</td>
-<td>990</td>
-<td>970</td>
-<td>14</td>
-<td>990</td>
-<td>0.411764706</td>
-</tr>
-<tr>
-<td>3月7日</td>
-<td>990</td>
-<td>979</td>
-<td>9</td>
-<td>990</td>
-<td>0.45</td>
-</tr>
-<tr>
-<td>3月8日</td>
-<td>990</td>
-<td>981</td>
-<td>2</td>
-<td>990</td>
-<td>0.181818182</td>
-</tr>
-<tr>
-<td><strong>3月9日</strong>（检验日&amp;疫情基本结束）</td>
-<td>990</td>
-<td>984</td>
-<td>3</td>
-<td>990</td>
-<td>0.333333333</td>
-</tr>
-</tbody></table>
-<p>数据来自疫情日报。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] 花长春、陈礼清、田玉铎.利用SEIR模型推演湖北、非湖北和全国疫情拐点 ——2020年突发风险系列[EB]/[OL].<a href="https://finance.sina.cn/2020-02-07/detail-iimxyqvz0930302.d.html" target="_blank" rel="noopener">https://finance.sina.cn/2020-02-07/detail-iimxyqvz0930302.d.html</a> .(2020-02-07)[2020-02-21]</p>
-<p>[2]央视网“疫情日报”搜索[EB]/[OL].<a href="https://search.cctv.com/search.php" target="_blank" rel="noopener">https://search.cctv.com/search.php</a> .[2020-02-21]</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1022,6 +582,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
