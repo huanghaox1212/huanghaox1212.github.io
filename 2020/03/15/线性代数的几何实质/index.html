@@ -20,27 +20,40 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="璀璨星光">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Part 0摘要：由于学业的专注点原因，许多人对线性代数的理解尚停留在代数计算方面，而并不能理解一些定义和法则是从何而来以及线性代数的本源意义。在此意义上，本文不失为一个较直观的线代入门。 Part 1 线性空间的概念1.1 向量的实质 首先搬出一般的定义：同时具有大小与方向的量。但对于oiers来说，事实上m维向量就是具有m个元素的列表，例如stl中就把动态数组作为vector（向量）。线性代数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数的几何实质">
+<meta property="og:url" content="http://yoursite.com/2020/03/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9E%E8%B4%A8/index.html">
 <meta property="og:site_name" content="璀璨星光">
+<meta property="og:description" content="Part 0摘要：由于学业的专注点原因，许多人对线性代数的理解尚停留在代数计算方面，而并不能理解一些定义和法则是从何而来以及线性代数的本源意义。在此意义上，本文不失为一个较直观的线代入门。 Part 1 线性空间的概念1.1 向量的实质 首先搬出一般的定义：同时具有大小与方向的量。但对于oiers来说，事实上m维向量就是具有m个元素的列表，例如stl中就把动态数组作为vector（向量）。线性代数">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/59165.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/58929.png">
+<meta property="og:image" content="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D166/sign=9f4e73d7c01349547a1eec62604f92dd/4610b912c8fcc3ce026c02659945d688d43f203c.jpg">
+<meta property="og:image" content="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D152/sign=3dca35e66e380cd7e21ea6e89345ad14/95eef01f3a292df56d4a6643b7315c6035a873df.jpg">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/58960.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/59317.png">
+<meta property="og:image" content="https://zhihu.com/equation?tex=f(x)%253De%5E%7B-x%5E%7B2%7D+%252F2%7D+">
+<meta property="article:published_time" content="2020-03-15T01:21:12.000Z">
+<meta property="article:modified_time" content="2020-03-15T01:24:40.166Z">
 <meta property="article:author" content="HHX">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/pic/59165.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/03/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9E%E8%B4%A8/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 
-  <title>璀璨星光</title>
+  <title>线性代数的几何实质 | 璀璨星光</title>
   
 
 
@@ -192,10 +205,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9E%E8%B4%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,8 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9E%E8%B4%A8/" class="post-title-link" itemprop="url">线性代数的几何实质</a>
+          线性代数的几何实质
         </h1>
 
         <div class="post-meta">
@@ -235,7 +247,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Part-0"><a href="#Part-0" class="headerlink" title="Part 0"></a>Part 0</h2><p>摘要：由于学业的专注点原因，许多人对线性代数的理解尚停留在代数计算方面，而并不能理解一些定义和法则是从何而来以及线性代数的本源意义。在此意义上，本文不失为一个较直观的线代入门。</p>
+        <h2 id="Part-0"><a href="#Part-0" class="headerlink" title="Part 0"></a>Part 0</h2><p>摘要：由于学业的专注点原因，许多人对线性代数的理解尚停留在代数计算方面，而并不能理解一些定义和法则是从何而来以及线性代数的本源意义。在此意义上，本文不失为一个较直观的线代入门。</p>
 <h2 id="Part-1-线性空间的概念"><a href="#Part-1-线性空间的概念" class="headerlink" title="Part 1 线性空间的概念"></a>Part 1 线性空间的概念</h2><p>1.1 向量的实质</p>
 <p>首先搬出一般的定义：同时具有大小与方向的量。但对于oiers来说，事实上m维向量就是具有m个元素的列表，例如stl中就把动态数组作为vector（向量）。线性代数中，常常把向量的起点认为是原点，而终点就可以唯一地表示一个向量。</p>
 <p>在第一种意义上，向量指导了在空间中的运动。向量$\alpha=(a_1,…,a_n)$表示分别向第i个坐标轴上移动$a_i$的长度。两个向量的相加运算就是先后执行两个运动，显然有$(\alpha+\beta)_i=\alpha_i+\beta_i$。以此为基础理解数乘，即得$(k\alpha)_i=k\alpha_i$。</p>
@@ -382,226 +394,38 @@ f(x)=\begin{pmatrix}a_0\\a_1x\\a_2x^2\\...\end{pmatrix}</script><p>则微分算�
 D=\begin{pmatrix}0&1&0&0&...\\0&0&2&0&...\\0&0&0&3&...\\...&...&...&...\end{pmatrix}</script><p>显然有$\det D=0$，因为第一列为0向量。这有一个很好的解释：微分算符D是没有逆运算的。</p>
 <p>2.傅里叶变换是可以求特征向量的。它的特征向量为<img src="https://zhihu.com/equation?tex=f%28x%29%3De%5E%7B-x%5E%7B2%7D+%2F2%7D+" alt="img"></p>
 <h3 id="本文完结"><a href="#本文完结" class="headerlink" title="本文完结"></a>本文完结</h3><h3 id="点赞是一种美德"><a href="#点赞是一种美德" class="headerlink" title="点赞是一种美德"></a>点赞是一种美德</h3>
-      
     </div>
 
     
     
     
+      
+        
+      
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Math/" rel="tag"># Math</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HHX">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="璀璨星光">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/" class="post-title-link" itemprop="url">SARS-CoV-2安徽疫情的微分方程模型预测</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-15 08:44:33 / 修改时间：09:17:22" itemprop="dateCreated datePublished" datetime="2020-03-15T08:44:33+08:00">2020-03-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文的结果预测于2月21日。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/" rel="prev" title="SARS-CoV-2安徽疫情的微分方程模型预测">
+      <i class="fa fa-chevron-left"></i> SARS-CoV-2安徽疫情的微分方程模型预测
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/fist-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HHX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="璀璨星光">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/14/fist-post/" class="post-title-link" itemprop="url">fist post</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-14 21:07:23" itemprop="dateCreated datePublished" datetime="2020-03-14T21:07:23+08:00">2020-03-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-15 07:49:06" itemprop="dateModified" datetime="2020-03-15T07:49:06+08:00">2020-03-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HHX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="璀璨星光">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/14/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-14 20:23:23" itemprop="dateCreated datePublished" datetime="2020-03-14T20:23:23+08:00">2020-03-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-15 07:49:02" itemprop="dateModified" datetime="2020-03-15T07:49:02+08:00">2020-03-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/14/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -652,6 +476,7 @@ D=\begin{pmatrix}0&1&0&0&...\\0&0&2&0&...\\0&0&0&3&...\\...&...&...&...\end{pmat
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-0"><span class="nav-number">1.</span> <span class="nav-text">Part 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1-线性空间的概念"><span class="nav-number">2.</span> <span class="nav-text">Part 1 线性空间的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2-矩阵的本质与线性变换"><span class="nav-number">3.</span> <span class="nav-text">Part 2 矩阵的本质与线性变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下重点"><span class="nav-number">3.1.</span> <span class="nav-text">总结一下重点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part3-行列式"><span class="nav-number">4.</span> <span class="nav-text">Part3 行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part4-逆矩阵、列空间与零空间"><span class="nav-number">5.</span> <span class="nav-text">Part4 逆矩阵、列空间与零空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逆矩阵"><span class="nav-number">5.1.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列空间、零空间与秩"><span class="nav-number">5.2.</span> <span class="nav-text">列空间、零空间与秩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part5-基变换"><span class="nav-number">6.</span> <span class="nav-text">Part5 基变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part6-特征向量与特征值"><span class="nav-number">7.</span> <span class="nav-text">Part6 特征向量与特征值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part7-克拉默法则"><span class="nav-number">8.</span> <span class="nav-text">Part7 克拉默法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part8-一些彩蛋"><span class="nav-number">9.</span> <span class="nav-text">Part8 一些彩蛋</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文完结"><span class="nav-number">9.1.</span> <span class="nav-text">本文完结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点赞是一种美德"><span class="nav-number">9.2.</span> <span class="nav-text">点赞是一种美德</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -788,59 +613,6 @@ D=\begin{pmatrix}0&1&0&0&...\\0&0&2&0&...\\0&0&0&3&...\\...&...&...&...\end{pmat
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
