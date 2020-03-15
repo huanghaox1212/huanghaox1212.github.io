@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>博客说明</title>
+    <url>/2020/03/15/Hexo%E5%8D%9A%C2%8D%C2%9A%E5%AE%A2%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<h1 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h1><p>本博客中一切内容，除特殊说明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 进行授权，转载请保留原文链接及作者，且应放置于较显眼位置。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul>
+<li>左侧栏“关于”中包含博主信息</li>
+<li>“标签”可查看标签。对于单独的一篇文章，标签和评论都在文章最底部。</li>
+<li>点击某个标签后，会显示打上这个标签的所有文章。</li>
+<li>“归档”不易描述，自己打开一下就知道是干什么的了。</li>
+<li>“搜索”字面意思。</li>
+<li>“分类”和“站点地图”暂未实现。</li>
+</ul>
+<h1 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h1><p>博客是有彩蛋页面的，但是不会放到菜单里面。需要你自己输网址访问。例如：Funny。菜单页面的内容会不定期更新。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>线性代数的几何实质</title>
     <url>/2020/03/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9E%E8%B4%A8/</url>
     <content><![CDATA[<h2 id="Part-0"><a href="#Part-0" class="headerlink" title="Part 0"></a>Part 0</h2><p>摘要：由于学业的专注点原因，许多人对线性代数的理解尚停留在代数计算方面，而并不能理解一些定义和法则是从何而来以及线性代数的本源意义。在此意义上，本文不失为一个较直观的线代入门。</p>
@@ -635,7 +653,15 @@ R_n=R_{n-1}+\gamma I_{n-1}</script><p>事实上，$r_1,r_2,\gamma$为定值时�
   <entry>
     <title>fist post</title>
     <url>/2020/03/14/fist-post/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="f807245920d16498a64cc9fa607fd17abfa09b45f216e84da06e9f3334cb736e">ea3a471361801c52a0f27fac405017c955b21d3b2402ce6e11ac1f84c902cc75</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>
