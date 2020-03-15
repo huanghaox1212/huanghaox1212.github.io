@@ -5,7 +5,6 @@
     <url>/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/</url>
     <content><![CDATA[<p>本文的结果预测于2月21日。</p>
 <a id="more"></a>
-
 <h2 id="0-符号约定"><a href="#0-符号约定" class="headerlink" title="0.符号约定"></a>0.符号约定</h2><ul>
 <li>某种人群的数量-时间关系函数为$X(t)$，其中 X 表示该人群的名称首字母。</li>
 <li>患者传染率为$\beta$，患者治愈率$\gamma$，被传染之后<strong>成为患者而不是潜伏者，或者由潜伏者成为患者</strong>的概率为$\alpha$（由于潜伏者只有变为患者后才会被医院收治，故忽略潜伏者治愈率）。</li>
@@ -16,7 +15,7 @@
 <li>附件中的数据真实可靠</li>
 <li>安徽区域的人数近似稳定，不会大幅度地向外或向内流动</li>
 <li>潜伏者在出现症状前，不会被检查出携带病毒并入院收治</li>
-<li>死亡人数对疫情模型几乎没有影响。事实上，安徽地区截至2.19的患者死亡率仅为约$0.6%$</li>
+<li>死亡人数对疫情模型几乎没有影响。事实上，安徽地区截至2.19的患者死亡率仅为约$0.6\%$</li>
 <li>本模型仅用于计算不超过一个月的情况。由于安徽的疫情发展迅速（事实上根据预测，3月上旬就将结束），这已经足够。</li>
 </ul>
 <h2 id="2-传染病模型简述"><a href="#2-传染病模型简述" class="headerlink" title="2.传染病模型简述"></a>2.传染病模型简述</h2><p>考虑新冠肺炎疫情复杂，选择$\text{seir}$模型作为基础。<br>将人群分为如下几类：</p>
@@ -27,13 +26,19 @@
 <li>$\text{R (Recovered)}$，治愈者。指被隔离或因病愈而具有免疫力的人。如免疫期有限，R 类成员可以重新变为 S 类。包括病死者。</li>
 <li><strong>需要注意的是，在本文中，为了方便调参，I代表累计确诊人数</strong>。</li>
 </ul>
-<p>其满足恒等关系$S(t)+E(t)+I(t)=N$，与微分方程<br>$$<br>\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\dfrac{\text{d}R}{\text{d}t}=\gamma I<br>$$<br>由于SARS-CoV-2的潜伏者具有感染能力，我们对微分方程进行调整：<br>$$<br>\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N-r_2\beta ES/N\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E+r_2\beta ES/N\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\dfrac{\text{d}R}{\text{d}t}=\gamma I<br>$$<br>具体计算过程中，我们取天为单位。进行迭代求解：<br>$$<br>S_n=S_{n-1}-r_1\beta I_{n-1}S_{n-1}/N-r_2\beta E_{n-1}S_{n-1}/N\E_n=E_{n-1}+r_1\beta I_{n-1}S_{n-1}/N-\alpha E_{n-1}+r_2\beta E_{n-1}S_{n-1}/N\I_n=I_{n-1}+\alpha E_{n-1}\R_n=R_{n-1}+\gamma I_{n-1}<br>$$<br>事实上，$r_1,r_2,\gamma$为定值时，将会导致结果极不准确。这不难理解，因为戒严尺度、医疗经验皆发生了变化。</p>
+<p>其满足恒等关系$S(t)+E(t)+I(t)=N$，与微分方程</p>
+<script type="math/tex; mode=display">
+\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N\\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E\\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\\dfrac{\text{d}R}{\text{d}t}=\gamma I</script><p>由于SARS-CoV-2的潜伏者具有感染能力，我们对微分方程进行调整：</p>
+<script type="math/tex; mode=display">
+\dfrac{\text{d}S}{\text{d}t}=-r_1\beta IS/N-r_2\beta ES/N\\\dfrac{\text{d}E}{\text{d}t}=r_1\beta IS/N-\alpha E+r_2\beta ES/N\\\dfrac{\text{d}I}{\text{d}t}=\alpha E\\\dfrac{\text{d}R}{\text{d}t}=\gamma I</script><p>具体计算过程中，我们取天为单位。进行迭代求解：</p>
+<script type="math/tex; mode=display">
+S_n=S_{n-1}-r_1\beta I_{n-1}S_{n-1}/N-r_2\beta E_{n-1}S_{n-1}/N\\E_n=E_{n-1}+r_1\beta I_{n-1}S_{n-1}/N-\alpha E_{n-1}+r_2\beta E_{n-1}S_{n-1}/N\\I_n=I_{n-1}+\alpha E_{n-1}\\R_n=R_{n-1}+\gamma I_{n-1}</script><p>事实上，$r_1,r_2,\gamma$为定值时，将会导致结果极不准确。这不难理解，因为戒严尺度、医疗经验皆发生了变化。</p>
 <p>所以我们令$r_1=r_1(t),r_2=r_2(t),\gamma=\gamma(t)$为关于时间的函数。</p>
 <h2 id="模型参数"><a href="#模型参数" class="headerlink" title="模型参数"></a>模型参数</h2><h3 id="固有参数"><a href="#固有参数" class="headerlink" title="固有参数"></a>固有参数</h3><ul>
 <li>人口：$N=6.3236\times10^7$</li>
 <li>$S_0=N,I_0=9,R_0=0$（初始状态下E和I极少，故S0大致视作N）。</li>
-<li>传染率：$\beta=1.7%$</li>
-<li>潜伏者发病概率：$\alpha=13%$</li>
+<li>传染率：$\beta=1.7\%$</li>
+<li>潜伏者发病概率：$\alpha=13\%$</li>
 <li>固有参数中部分选自文献[1]</li>
 </ul>
 <h3 id="待定参数"><a href="#待定参数" class="headerlink" title="待定参数"></a>待定参数</h3><p>这是一些较难统计的参数。</p>
@@ -62,7 +67,8 @@
 <li>一方面即“风险提示”中第四点。</li>
 <li>前后期存在一些被本文忽略，但实际上不容忽视的其他因素，它在前期有重要影响，但中后期影响力则淡化。</li>
 </ul>
-<h3 id="附件（安徽省疫情历史数据）"><a href="#附件（安徽省疫情历史数据）" class="headerlink" title="附件（安徽省疫情历史数据）"></a>附件（安徽省疫情历史数据）</h3><table>
+<h3 id="附件（安徽省疫情历史数据）"><a href="#附件（安徽省疫情历史数据）" class="headerlink" title="附件（安徽省疫情历史数据）"></a>附件（安徽省疫情历史数据）</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>日期</th>
@@ -73,7 +79,8 @@
 <th>痊愈率</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1月23日</td>
 <td>9</td>
 <td>0</td>
@@ -449,7 +456,9 @@
 <td>990</td>
 <td>0.333333333</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>数据来自疫情日报。</p>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] 花长春、陈礼清、田玉铎.利用SEIR模型推演湖北、非湖北和全国疫情拐点 ——2020年突发风险系列[EB]/[OL].<a href="https://finance.sina.cn/2020-02-07/detail-iimxyqvz0930302.d.html" target="_blank" rel="noopener">https://finance.sina.cn/2020-02-07/detail-iimxyqvz0930302.d.html</a> .(2020-02-07)[2020-02-21]</p>
 <p>[2]央视网“疫情日报”搜索[EB]/[OL].<a href="https://search.cctv.com/search.php" target="_blank" rel="noopener">https://search.cctv.com/search.php</a> .[2020-02-21]</p>
@@ -472,18 +481,13 @@
     <url>/2020/03/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <a id="more"></a>
-
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
       <tags>
