@@ -180,7 +180,8 @@ D=\begin{pmatrix}0&1&0&0&...\\0&0&2&0&...\\0&0&0&3&...\\...&...&...&...\end{pmat
   <entry>
     <title>SARS-CoV-2安徽疫情的微分方程模型预测</title>
     <url>/2020/03/15/SARS-CoV-2%E5%AE%89%E5%BE%BD%E7%96%AB%E6%83%85%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/</url>
-    <content><![CDATA[<p>本文的结果预测于2月21日。</p>
+    <content><![CDATA[<p>本文pdf：<a href="/2.pdf">link</a></p>
+<p>本文的结果预测于2月21日。</p>
 <a id="more"></a>
 <h2 id="0-符号约定"><a href="#0-符号约定" class="headerlink" title="0.符号约定"></a>0.符号约定</h2><ul>
 <li>某种人群的数量-时间关系函数为$X(t)$，其中 X 表示该人群的名称首字母。</li>
