@@ -2,23 +2,170 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/mot/list/index.html</loc>
+    <loc>http://yoursite.com/mot/list/num/index.html</loc>
     
-    <lastmod>2020-03-17T11:21:25.994Z</lastmod>
+    <lastmod>2020-03-17T15:35:16.695Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/mot/list/num/index.html</loc>
+    <loc>http://yoursite.com/mot/problem/pro17/sol/index.html</loc>
     
-    <lastmod>2020-03-17T11:20:41.333Z</lastmod>
+    <lastmod>2020-03-17T15:34:33.615Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro17/index.html</loc>
+    
+    <lastmod>2020-03-17T15:34:10.888Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro16/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:33:50.137Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro16/index.html</loc>
+    
+    <lastmod>2020-03-17T15:33:26.765Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro15/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:32:59.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro15/index.html</loc>
+    
+    <lastmod>2020-03-17T15:32:42.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro14/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:32:17.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro14/index.html</loc>
+    
+    <lastmod>2020-03-17T15:31:55.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro13/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:31:36.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro13/index.html</loc>
+    
+    <lastmod>2020-03-17T15:31:14.756Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro12/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:30:38.502Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro12/index.html</loc>
+    
+    <lastmod>2020-03-17T15:30:07.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro11/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:29:38.584Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro11/index.html</loc>
+    
+    <lastmod>2020-03-17T15:29:11.456Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro10/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:28:37.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro10/index.html</loc>
+    
+    <lastmod>2020-03-17T15:27:49.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro9/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:27:06.771Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro9/index.html</loc>
+    
+    <lastmod>2020-03-17T15:25:14.717Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/index.html</loc>
+    
+    <lastmod>2020-03-17T15:23:17.651Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro8/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T15:11:43.735Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/problem/pro8/index.html</loc>
+    
+    <lastmod>2020-03-17T15:10:14.116Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/mot/list/set/index.html</loc>
     
-    <lastmod>2020-03-17T11:06:09.393Z</lastmod>
+    <lastmod>2020-03-17T15:06:32.959Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/index.html</loc>
+    
+    <lastmod>2020-03-17T11:21:25.994Z</lastmod>
     
   </url>
   
@@ -163,6 +310,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/mot/problem/pro7/sol/index.html</loc>
+    
+    <lastmod>2020-03-17T05:57:47.224Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/mot/problem/pro1/index.html</loc>
     
     <lastmod>2020-03-17T05:56:18.504Z</lastmod>
@@ -205,9 +359,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/mot/problem/index.html</loc>
+    <loc>http://yoursite.com/mot/problem/pro7/index.html</loc>
     
-    <lastmod>2020-03-17T05:55:46.604Z</lastmod>
+    <lastmod>2020-03-17T05:56:18.504Z</lastmod>
     
   </url>
   
