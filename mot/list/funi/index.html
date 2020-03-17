@@ -22,13 +22,15 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="璀璨星光">
-<meta property="og:url" content="http://yoursite.com/tags/JS/index.html">
+<meta property="og:url" content="http://yoursite.com/mot/list/funi/index.html">
 <meta property="og:site_name" content="璀璨星光">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-17T09:05:04.393Z">
+<meta property="article:modified_time" content="2020-03-17T09:05:04.393Z">
 <meta property="article:author" content="HHX">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/tags/JS/">
+<link rel="canonical" href="http://yoursite.com/mot/list/funi/">
 
 
 <script id="page-configurations">
@@ -40,7 +42,8 @@
   };
 </script>
 
-  <title>标签: JS | 璀璨星光</title>
+  <title> | 璀璨星光
+  </title>
   
 
 
@@ -202,54 +205,59 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">JS
-          <small>标签</small>
-        </h1>
-      </div>
+  <ul class="breadcrumb">
+          
+            <li><a href="/mot/">MOT</a></li>
+            <li><a href="/mot/list/">LIST</a></li>
+          <li>FUNI</li>
+        
+  </ul>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-15T21:56:51+08:00"
-              content="2020-03-15">
-          03-15
-        </time>
+      
+      
+      <div class="post-body">
+          
       </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/15/MO_Training/" itemprop="url">
-            <span itemprop="name">【构建中】MO_Training数竞学习&训练场</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+      
+      
+      
     </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/mot/">MOT</a></li>
+            <li><a href="/mot/list/">LIST</a></li>
+          <li>FUNI</li>
+        
+  </ul>
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -456,6 +464,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

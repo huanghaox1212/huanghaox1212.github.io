@@ -2,6 +2,111 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/mot/list/linear/index.html</loc>
+    
+    <lastmod>2020-03-17T09:38:48.235Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/03/15/MO_Training/</loc>
+    
+    <lastmod>2020-03-17T09:10:06.269Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/efun/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/funi/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/fune/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/abelc/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/trifun/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/array/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/complex/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/calc/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/ineq/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/conic/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/solid/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/halg/index.html</loc>
+    
+    <lastmod>2020-03-17T09:05:04.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/mot/list/index.html</loc>
+    
+    <lastmod>2020-03-17T09:03:52.649Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/mot/list/set/index.html</loc>
     
     <lastmod>2020-03-17T08:46:41.989Z</lastmod>
@@ -107,13 +212,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/mot/list/index.html</loc>
-    
-    <lastmod>2020-03-17T05:33:01.072Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/mot/index.html</loc>
     
     <lastmod>2020-03-17T02:10:19.910Z</lastmod>
@@ -194,13 +292,6 @@
     <loc>http://yoursite.com/mathnazo/B/index.html</loc>
     
     <lastmod>2020-03-16T07:59:55.040Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/03/15/Nazo%E6%95%B0%E7%AB%9E%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/</loc>
-    
-    <lastmod>2020-03-16T06:01:11.128Z</lastmod>
     
   </url>
   
