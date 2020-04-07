@@ -1,0 +1,274 @@
+/*
+ * 嵌入式框样式自定义
+ */
+ .bdcs-container .bdcs-main, .bdcs-container .bdcs-main * {
+    box-sizing:content-box;
+    margin:0;
+    padding:0;
+    float:none;
+    clear:none;
+    overflow:hidden;
+    white-space:nowrap;
+    word-wrap:normal;
+    border:0;
+    background:none;
+    width:auto;
+    height:32px;
+    line-height: 32px;
+    max-width:none;
+    min-width:none;
+    max-height:none;
+    min-height:none;
+    border-radius:0;
+    box-shadow:none;
+    transition:none;
+    text-align:left;
+}
+
+.bdcs-container .bdcs-clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+.bdcs-container .bdcs-clearfix {
+    zoom: 1;
+}
+
+.bdcs-container .bdcs-main {
+    overflow: visible;
+}
+.bdcs-container .bdcs-search {
+    display: block;
+    overflow: visible;
+    position: relative;
+    border-style: solid;
+}
+
+.bdcs-container .bdcs-search-form-input-wrap {
+    display: inline-block;
+}
+
+/*输入框自定义样式*/
+#bdcs, #bdcs .bdcs-container {
+    width: 100%;
+    background: none;
+}
+#bdcs .bdcs-container form {
+    padding: 0 10px;
+}
+.bdcs-container .bdcs-search-form-input {
+    display: inline-block;
+    vertical-align: top;
+    text-indent: 0;
+    float: left;
+    border-color:#a6a6a6;
+    width: calc(100% - 20px) !important;
+    height:32px !important;
+    line-height:32px !important;
+    color:#fff;
+    font-size:14px;
+}
+.bdcs-container .bdcs-search-form-input:focus {
+    border-width: 0;
+    border-style: solid;
+    outline: none;
+}
+.bdcs-container .bdcs-search-form-submit-wrap {
+    display: inline-block;
+}
+
+/*按钮样式自定义*/
+.bdcs-container .bdcs-search-form-submit {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+    background: url('../images/search.png') center no-repeat !important;
+    background-size: 16px 16px!important;
+    float: right;
+    margin-top:8px;
+    /*IE67 submit width fix*/
+    /*width: 1;
+    *overflow: visible;
+    /*fix IE6 submit height but width still bug*/
+}
+
+.bdcs-container .bdcs-search-form-submit-magnifier {
+    width: 45px;
+    padding: 0;
+    text-indent: -999em;
+    overflow: hidden;
+    background: url('/static/customer-search/component/search/magnifier-icon.png') no-repeat center center;
+    _background: url('/static/customer-search/component/search/magnifier-icon_ie6.png') no-repeat center center;
+}
+.bdcs-container .bdcs-search-form-input-wrap{}
+.bdcs-container .bdcs-search-form-input-notspan{
+    margin-left:0px;
+    font-family:Arial,SimSun,sans-serif;
+    color:#000000;
+    font-size:14px;
+}
+.bdcs-container .bdcs-search-form-input .icon-nofocus{
+    
+}
+.bdcs-container .bdcs-search{
+    width:100%;
+    height:32px;
+    overflow:visible;
+    border-color:#ffffff;
+    border-radius:0px;
+    border-width:0px;
+    box-shadow:none;
+    background-color:none;
+}
+
+.bdcs-container .bdcs-search-form-input:focus{
+    border-color:transparent;
+}
+.bdcs-container .bdcs-search-form-submit-wrap{
+
+}
+
+.bdcs-container .bdcs-search-sug-list{
+    width:250px;
+}
+.bdcs-container .bdcs-search-sug-list-item{
+    height:30px;
+    line-height:30px;
+    font-family:Arial,SimSun,sans-serif;
+    font-size:14px;
+}
+.bdcs-container .bdcs-search-sug-list-item-value{
+    color:#000000;
+}
+.bdcs-container .bdcs-hot{
+    width:300px;
+    height:30px;
+    line-height:30px;
+}
+.bdcs-container .bdcs-hot-item{
+    color:#632423;
+    font-family:Arial,Microsoft YaHei,sans-serif;
+    font-size:14px;
+}
+
+/*频道设置*/
+div#default-searchbox  .default-channel-meun{
+    position: relative;
+    width: 75px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #fff;
+    float: left;
+    overflow: visible;
+}
+div#default-searchbox .default-channel-current{
+    border: 1px solid;
+    position: relative;
+    width: 100%;
+    border-right: none;
+}
+
+div#default-searchbox .default-channel-current span{
+    margin-left: 8px;
+}
+
+div#default-searchbox .default-channel-current i{
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    border-width: 6px 6px 0;
+    border-color: #9E9E9E #ffffff;
+    border-style: solid;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 11px;
+}
+
+div#default-searchbox .default-channel-list{
+    display: none;
+    width: 99%;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #DDD;
+    border-top: none;
+    margin: 0;
+    padding: 0;
+    /*position: absolute;*/
+    z-index: 30000;
+}
+
+div#default-searchbox .default-channel-list li{
+    background: none;
+    line-height: 24px;
+    list-style: none;
+    padding-left: 7px;
+}
+div#default-searchbox .default-channel-list li:hover{
+    background: #DDD;
+}
+
+
+/*热搜词自定义*/
+.bdcs-container .bdcs-hot, .bdcs-container .bdcs-hot * {
+    box-sizing:content-box;
+    margin:0;
+    padding:0;
+    float:none;
+    clear:none;
+    overflow:hidden;
+    white-space:nowrap;
+    word-wrap:normal;
+    border:0;
+    background:none;
+    width:auto;
+    height:auto;
+    max-width:none;
+    min-width:none;
+    max-height:none;
+    min-height:none;
+    border-radius:0;
+    box-shadow:none;
+    transition:none;
+    text-align:left;
+}
+.bdcs-container .bdcs-hot {
+    display: block;
+    white-space: normal;
+}
+.bdcs-container .bdcs-hot-item {
+    margin-right: 10px;
+}
+.bdcs-container .bdcs-hot{
+    width:300px;
+    height:30px;
+    line-height:30px;
+}
+.bdcs-container .bdcs-hot-item{
+    color:#632423;
+    font-family:Arial,Microsoft YaHei,sans-serif;
+    font-size:14px;
+}
+
+.bdcs-container{
+    /*width:px;*/
+    height:32px;
+    width: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    background:rgba(241,241,241,1);
+}
+
+.bdcs-main{
+    overflow:visible;
+}
+#WangEditorDom{
+    background: #fff;
+    text-align: left;
+}
